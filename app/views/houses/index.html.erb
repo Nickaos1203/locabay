@@ -1,0 +1,19 @@
+<h1>All houses</h1>
+<div><%= link_to "Retour à l'accueil", root_path %></div>
+
+
+  <div class="list_container">
+
+    <% @houses.each do |house| %>
+
+      <div class="list-card">
+        <%= image_tag(house.picture) %>
+          <div class="list-card-infos">
+            <h6><%= house.name %></h6>
+            <%= link_to "plus d'informations", house_path(house) %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>

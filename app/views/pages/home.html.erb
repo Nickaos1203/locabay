@@ -1,0 +1,8 @@
+<h1>Bienvenue chez Locabay, l'expert de la location de vacances</h1>
+<% if user_signed_in? %>
+  <p>Hello! <%=current_user.email %></p>
+  <% else %>
+  <p>Pas encore connecté</p>
+  <% end %>
+
+<button> <%= link_to "Voir les locations", houses_path %></button>

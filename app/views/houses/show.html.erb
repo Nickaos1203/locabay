@@ -1,0 +1,19 @@
+<%= link_to "Retour", houses_path %>
+
+<h2><%= @house.name %></h2>
+<p><%= @house.description %></p>
+<p><%= @house.address %></p>
+<p><%= @house.price %></p>
+<p>Toujours disponible: <%= @house.available %></p>
+<p><%= image_tag(@house.picture) %></p>
+
+<% if user_signed_in? %>
+
+    <%= link_to "Modifier", edit_house_path(@house) %>
+    <%= link_to "Supprimer",
+        house_path(@house),
+        data: {turbo_method: :delete, turbo_confirm: "Est-tu sûr de vouloir continuer l'action ?"}
+    %>
+<% else %>
+<p>Tu as besoin de te connecter pour effectuer des actions</p>
+<%end%>
