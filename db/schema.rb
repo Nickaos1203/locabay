@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_26_215940) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "houses", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -25,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_215940) do
   create_table "notices", force: :cascade do |t|
     t.float "note"
     t.text "comment"
-    t.integer "house_id", null: false
+    t.bigint "house_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_notices_on_house_id"
@@ -35,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_215940) do
     t.date "date_start"
     t.date "date_end"
     t.string "statut"
-    t.integer "house_id", null: false
+    t.bigint "house_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_reservations_on_house_id"
